@@ -4,11 +4,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const dbPool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  port: Number(process.env.DB_PORT) || 3306,
-  user: process.env.DB_USER || 'unab_cde_user',
-  password: process.env.DB_PASSWORD || 'hackaton_2026',
-  database: process.env.DB_NAME || 'ctrl_core_db',
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   // Optimizaciones Críticas
   connectionLimit: 20,
   waitForConnections: true,
