@@ -6,6 +6,7 @@ import companyRoutes from './src/modules/empresas/infrastructure/http/company.ro
 import authRoutes from './src/modules/auth/infrastructure/http/auth.routes';
 import analyticsRoutes from './src/modules/analytics/infrastructure/http/analytics.routes';
 import kanbanRoutes from './src/modules/intervenciones/infrastructure/http/kanban.routes';
+import { getInitCatalogos } from './src/modules/catalogos/infrastructure/http/catalogos.controller';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,6 +37,7 @@ app.use('/api/v1', tenantMiddleware);
 app.use('/api/v1/empresas', companyRoutes);
 app.use('/api/v1/analytics', analyticsRoutes);
 app.use('/api/v1/intervenciones/kanban', kanbanRoutes);
+app.get('/api/v1/catalogos/init', getInitCatalogos);
 
 async function bootstrap() {
   await testConnection();
