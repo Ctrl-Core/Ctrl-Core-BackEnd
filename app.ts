@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import { testConnection } from './src/shared/database/connection';
 import { tenantMiddleware } from './src/shared/middlewares/tenant.middleware';
 import companyRoutes from './src/modules/empresas/infrastructure/http/company.routes';
@@ -9,6 +10,7 @@ import kanbanRoutes from './src/modules/intervenciones/infrastructure/http/kanba
 import { getInitCatalogos } from './src/modules/catalogos/infrastructure/http/catalogos.controller';
 
 const app = express();
+app.use(helmet());
 const PORT = process.env.PORT || 3000;
 
 // Configuración global
